@@ -30,7 +30,7 @@ const Form = () => {
         <div className='my-7'>
           <label className='font-bold text-blue-900' htmlFor="question">Question:</label>
           <input
-            className='border-gray-500 rounded-full border-2 ms-8'
+            className='border-gray-500  border-2 ms-8'
             type="text"
             name='question'
             placeholder='Enter question'
@@ -42,7 +42,7 @@ const Form = () => {
           <div key={index} className='my-7'>
             <label className='font-bold text-blue-900' htmlFor={`choice${index}`}>Choice:</label>
             <input
-              className='border-gray-500 rounded-full border-2 ms-8'
+              className='border-gray-500  border-2 ms-8'
               type="text"
               name={`choice${index}`}
               placeholder='Enter choice'
