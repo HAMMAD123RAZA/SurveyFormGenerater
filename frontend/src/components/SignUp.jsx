@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userName, setUserName] = useState("");
+    const navigate=useNavigate()
 
     const handleSignUp = async () => {
         try {
@@ -15,6 +16,11 @@ const SignUp = () => {
                 password,
             });
             console.log(response.data);
+            if(response.data.token){
+                localStorage.setItem('token',response.data.token)
+                navigate('/')
+
+            }
             setUserName('');
             setEmail('');
             setPassword('');

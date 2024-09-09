@@ -10,7 +10,7 @@ const First = () => {
     </div>
     <div className="btn my-28 ">
 
-    <Link to='/login' className=' px-5 ms-5 py-3 font-bold rounded bg-blue-800 hover:bg-white text-white  border-2 border-blue-600 hover:text-blue-700'>Create</Link>
+    <Link to='/form' className=' px-5 ms-5 py-3 font-bold rounded bg-blue-800 hover:bg-white text-white  border-2 border-blue-600 hover:text-blue-700'>Create</Link>
     </div>
     </div>
 
