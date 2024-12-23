@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaXmark } from "react-icons/fa6";
 import { FaBars } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [click,setClick]=useState(false)
@@ -9,30 +10,27 @@ const Navbar = () => {
   }
   return (
     <>
-    <div className='flex justify-between items-center py-4 px-2 bg-gray-200' >
-    <div>
-        logo
-      </div>
+    <div className='flex justify-between items-center text-blue-900 font-bold  text-xl py-4 px-2 bg-gray-200' >
+    <Link to='/' >
+        Builder
+      </Link >
       <div className='md:flex gap-4 hidden' >
-        <a  className='text-blue-600 underline' href="">Home</a>
-        <a  className='text-blue-600 underline' href="">Home</a>
-        <a  className='text-blue-600 underline' href="">Home</a>
-        <a  className='text-blue-600 underline' href="">Home</a>
+        <Link to='/' className='text-blue-900 underline' >Home</Link>
+        <Link  className='text-blue-900 underline' to='/form' >Create</Link>
+        <Link  className='text-blue-900 underline' to='/view' >View</Link>
       </div>
-      <button className='hidden md:block' >signup</button>
+      <Link to='/signup' >Signup</Link>
       <button className='md:hidden ' onClick={handleClick}>{click?<FaXmark />:<FaBars />}</button>
       </div> 
-      <div >
-
+      <div>
       </div>
             {/* mobile */}
 {click &&(
   <div className="flex flex-col md:hidden text-center bg-gray-200 ">
-            <a  className='text-blue-600 underline' href="">Home</a>
-        <a  className='text-blue-600 underline' href="">Home</a>
-        <a  className='text-blue-600 underline' href="">Home</a>
-        <a  className='text-blue-600 underline' href="">Home</a>
-        <button className='md:hidden block' >signup</button>
+            <Link className='text-blue-900 underline' to='/'>Home</Link>
+        <Link className='text-blue-900 underline' to='/form'>Create</Link>
+        <Link className='text-blue-900 underline' to='view'>View</Link>
+        <Link to='/signup' > Signup</Link>
 
   </div>
 )}

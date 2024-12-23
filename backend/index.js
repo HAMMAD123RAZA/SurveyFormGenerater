@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { createForm, getForm } from "./controllers/FormControllers.js";
+import { createForm, deleteForm, getForm } from "./controllers/FormControllers.js";
 import { login, signUp } from "./controllers/UserController.js";
 import { neon } from "@neondatabase/serverless";
 import dotenv from "dotenv";
@@ -32,3 +32,4 @@ app.get("/", getForm);
 app.post("/create", createForm);
 app.post("/login", login);
 app.post("/signup", signUp);
+app.delete('/delete/:id',deleteForm)
