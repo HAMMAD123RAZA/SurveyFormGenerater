@@ -2,7 +2,7 @@ import React from 'react';
 import { MdDelete } from "react-icons/md";
 
 const Props = ({ value, handleDelete }) => {
-  console.log("Props value:", value); // Debugging log
+  console.log("Props value:", value); 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-6 w-full max-w-md">
       <div className="flex justify-between items-center">
