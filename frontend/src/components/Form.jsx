@@ -9,7 +9,7 @@ const Form = () => {
 
   const handleCreate = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/create", {
+      const response = await axios.post("https://survey-form-generater-so7y.vercel.app/create", {
         question,
         choices
       });

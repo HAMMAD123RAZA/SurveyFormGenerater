@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLogin=async()=>{
     try {
-      const res= await axios.post("http://localhost:8080/login",{
+      const res= await axios.post("https://survey-form-generater-so7y.vercel.app/login",{
         email,password
       })
       console.log(res.data)

@@ -10,7 +10,7 @@ const SignUp = () => {
 
     const handleSignUp = async () => {
         try {
-            const response = await axios.post("http://localhost:8080/signup", {
+            const response = await axios.post("https://survey-form-generater-so7y.vercel.app/signup", {
                 userName,
                 email,
                 password,

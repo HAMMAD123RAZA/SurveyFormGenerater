@@ -12,7 +12,7 @@ const ViewForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/");
+        const response = await axios.get("https://survey-form-generater-so7y.vercel.app/");
         console.log("Fetched data:", response.data);
         setData(response.data);
         
@@ -30,7 +30,7 @@ const ViewForm = () => {
         return;
     }
     try {
-        await axios.delete(`http://localhost:8080/delete/${id}`);
+        await axios.delete(`https://survey-form-generater-so7y.vercel.app/delete/${id}`);
         setData((prevData) => prevData.filter((item) => item.id !== id));
         console.log(`Deleted item with ID: ${id}`);
         Swal.fire({
