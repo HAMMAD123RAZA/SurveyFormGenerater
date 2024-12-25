@@ -12,7 +12,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
 const conn=async ()=>{
     try {
         await sql `SELECT 1`;
@@ -27,6 +26,13 @@ const conn=async ()=>{
 }
 
 conn()
+
+app.use(cors({
+  origin: "https://your-frontend-url.vercel.app",
+  credentials: true,
+}));
+
+
 // Routes
 app.get("/", getForm);
 app.post("/create", createForm);
