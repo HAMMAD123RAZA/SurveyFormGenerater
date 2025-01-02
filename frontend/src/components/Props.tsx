@@ -1,7 +1,17 @@
 import React from 'react';
 import { MdDelete } from "react-icons/md";
 
-const Props = ({ value, handleDelete }) => {
+interface propTypes{
+  value:{
+    id:string,
+    question:string,
+    choices:string[],
+  
+  };
+  handleDelete:(id:string|number)=>void
+}
+
+const Props:React.FC<propTypes> = ({ value, handleDelete }) => {
   console.log("Props value:", value); 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-6 w-full max-w-md">

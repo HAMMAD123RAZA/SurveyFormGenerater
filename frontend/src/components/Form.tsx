@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Form = () => {
-  const [question, setQuestion] = useState('');
-  const [choices, setChoices] = useState(['', '', '']); 
+  const [question, setQuestion] = useState<string>('');
+  const [choices, setChoices] = useState<string[]>(['', '', '']); 
 
   const handleCreate = async () => {
     try {
@@ -21,12 +21,12 @@ const Form = () => {
       setQuestion('')
       setChoices(['', '', '']);
       console.log(response.data);
-    } catch (error) {
+    } catch (error:any) {
       console.error(error.message);
     }
   };
 
-  const handleChoiceChange = (index, value) => {
+  const handleChoiceChange = (index:number, value:string) => {
     const newChoices = [...choices];
     newChoices[index] = value;
     setChoices(newChoices);
@@ -45,7 +45,7 @@ const Form = () => {
             required
             aria-required
             value={question}
-            onChange={(e) => setQuestion(e.target.value)}
+            onChange={(e:React.ChangeEvent<HTMLInputElement>) => setQuestion(e.target.value)}
           />
         </div>
         {choices.map((choice, index) => (
@@ -59,7 +59,7 @@ const Form = () => {
               required
               aria-required
               value={choice}
-              onChange={(e) => handleChoiceChange(index, e.target.value)}
+              onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChoiceChange(index, e.target.value)}
             />
           </div>
         ))}

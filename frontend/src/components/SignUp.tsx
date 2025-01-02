@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [userName, setUserName] = useState("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [userName, setUserName] = useState<string>("");
     const navigate=useNavigate()
 
     const handleSignUp = async () => {
@@ -25,7 +25,7 @@ const SignUp = () => {
             setEmail('');
             setPassword('');
             // alert(response.data.message); 
-        } catch (error) {
+        } catch (error:any) {
             if (error.response && error.response.data && error.response.data.message) {
                 alert(error.response.data.message); // Alert the user with the error message from the server
             } else {
@@ -42,7 +42,7 @@ const SignUp = () => {
                     <label className="block text-blue-900 font-bold mb-2" htmlFor="name">Name:</label>
                     <input
                         value={userName}
-                        onChange={(e) => setUserName(e.target.value)}
+                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => setUserName(e.target.value)}
                         className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500"
                         type="text"
                         name="name"
@@ -54,7 +54,7 @@ const SignUp = () => {
                     <label className="block text-blue-900 font-bold mb-2" htmlFor="email">Email:</label>
                     <input
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500"
                         type="email"
                         name="email"
@@ -66,7 +66,7 @@ const SignUp = () => {
                     <label className="block text-blue-900 font-bold mb-2" htmlFor="password">Password:</label>
                     <input
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                         className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500"
                         type="password"
                         name="password"

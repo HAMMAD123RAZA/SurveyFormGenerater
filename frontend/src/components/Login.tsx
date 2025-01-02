@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
+  const [email,setEmail]=useState<string>("")
+    const [password,setPassword]=useState<string>("")
     const navigate=useNavigate()
 
   const handleLogin=async()=>{
@@ -21,7 +21,7 @@ const Login = () => {
       setPassword('')
       alert(res.data.message)
 
-    } catch (error) {
+    } catch (error:any) {
       if(error.response && error.response.data && error.response.data.message){
         alert(error.response.data.message)
       }
@@ -41,11 +41,11 @@ const Login = () => {
         </div> */}
         <div className="mb-4">
           <label className="block text-blue-900 font-bold mb-2" htmlFor="email">Email:</label>
-          <input value={email} onChange={(e)=>setEmail(e.target.value)}  className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500" type="email" name="email" placeholder="Email" />
+          <input value={email} onChange={(e:React.ChangeEvent<HTMLInputElement>)=>setEmail(e.target.value)}  className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500" type="email" name="email" placeholder="Email" />
         </div>
         <div className="mb-6">
           <label className="block text-blue-900 font-bold mb-2" htmlFor="password">Password:</label>
-          <input value={password} onChange={(e)=>setPassword(e.target.value)} className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500" type="password" name="password" placeholder="Password" />
+          <input value={password} onChange={(e:React.ChangeEvent<HTMLInputElement>)=>setPassword(e.target.value)} className="w-full border-gray-300 rounded-lg border px-4 py-2 focus:outline-none focus:border-blue-500" type="password" name="password" placeholder="Password" />
         </div>
         <button type='button' onClick={handleLogin} className="w-full py-3 bg-blue-800 text-white rounded-lg font-bold hover:bg-blue-600">
             Login

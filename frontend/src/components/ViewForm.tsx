@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import Swal from 'sweetalert2'
 
+interface surveyItem{
+  id:string|number,
+  question:string,
+  choices:string[],
+}
 
 const ViewForm = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<surveyItem[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://survey-form-generater-so7y.vercel.app/");
+        const response = await axios.get<surveyItem[]>("https://survey-form-generater-so7y.vercel.app/");
         console.log("Fetched data:", response.data);
         setData(response.data);
         
@@ -23,12 +28,13 @@ const ViewForm = () => {
     fetchData();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id:any) => {
     console.log("Deleting ID:", id);
     if (!id) {
         console.error("Invalid ID for deletion");
         return;
     }
+
     try {
         await axios.delete(`https://survey-form-generater-so7y.vercel.app/delete/${id}`);
         setData((prevData) => prevData.filter((item) => item.id !== id));
@@ -38,7 +44,7 @@ const ViewForm = () => {
           text: "Deleted An Item!",
           icon: "success"
         });
-    } catch (error) {
+    } catch (error:any) {
         console.error("Error deleting data:", error);
     }
 };
@@ -47,7 +53,7 @@ const ViewForm = () => {
     <div className="flex flex-col py-3 justify-center items-center bg-gray-100">
       {data.length > 0 ? (
         data.map((item) => (
-          <Props key={item._id} handleDelete={handleDelete} value={item} />
+          <Props key={item.id} handleDelete={handleDelete} value={item} />
         ))
       ) : (
         <p className="text-2xl text-blue-900">No data available</p>
